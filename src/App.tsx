@@ -720,6 +720,9 @@ const Gallery = () => {
     { src: '/images/final-9.jpeg', label: 'Ambiente Acolhedor' },
     { src: '/images/final-10.jpeg', label: 'Cuidado e Bem-estar' },
     { src: '/images/final-11.jpeg', label: 'Experiência Única' },
+    { src: '/images/final-12.jpeg', label: 'Espaço de Terapias' },
+    { src: '/images/final-13.jpeg', label: 'Detalhes Acolhedores' },
+    { src: '/images/final-14.jpeg', label: 'Harmonia e Equilíbrio' },
     { src: '/videos/espaco-3s.mp4', label: 'Vídeo do Espaço', isVideo: true },
   ];
 
