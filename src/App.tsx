@@ -6,7 +6,7 @@ import {
   Menu, X, Phone, MapPin, Clock, Star,
   ChevronRight, Check, GraduationCap, Sparkles,
   Leaf, Flower, Heart, User, Send,
-  ShieldCheck, Award
+  ShieldCheck, Award, Play
 } from 'lucide-react';
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -331,7 +331,17 @@ const Navbar = () => {
 const Hero = () => (
   <section className="relative h-screen flex items-center justify-center overflow-hidden">
     <div className="absolute inset-0 z-0">
-      <img src="/images/capasitelira.jpeg" alt="Spa Lira Nora" className="w-full h-full object-cover object-[center_35%] brightness-[0.65]" />
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="w-full h-full object-cover brightness-[0.55]"
+        poster="/images/capasitelira.jpeg"
+      >
+        <source src="/videos/espaco-3s.mp4" type="video/mp4" />
+        <img src="/images/capasitelira.jpeg" alt="Spa Lira Nora" className="w-full h-full object-cover object-[center_35%]" />
+      </video>
       <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50" />
     </div>
     <div className="container mx-auto px-6 relative z-10 text-center">
@@ -361,13 +371,25 @@ const Hero = () => (
 
 // ─── About ────────────────────────────────────────────────────────────────────
 
-const About = () => (
+const About = ({ onPlayTour }: { onPlayTour: () => void }) => (
   <section id="sobre" className="py-24 bg-offwhite overflow-hidden">
     <div className="container mx-auto px-6">
       <div className="grid lg:grid-cols-2 gap-16 items-center">
         <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="relative">
-          <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl">
-            <img src="/images/seurefugioosasco.jpeg" alt="Ambiente Lira Nora" className="w-full h-full object-cover aspect-[4/5]" />
+          <div
+            onClick={onPlayTour}
+            className="relative z-10 rounded-2xl overflow-hidden shadow-2xl group cursor-pointer"
+          >
+            <img src="/images/seurefugioosasco.jpeg" alt="Ambiente Lira Nora" className="w-full h-full object-cover aspect-[4/5] group-hover:scale-105 transition-transform duration-700" />
+            <div className="absolute inset-0 bg-black/15 group-hover:bg-black/40 transition-colors flex items-center justify-center">
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                className="w-20 h-20 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-sage shadow-2xl transition-all"
+              >
+                <Play size={28} className="fill-current ml-1" />
+              </motion.div>
+            </div>
           </div>
           <div className="absolute -bottom-10 -right-10 w-2/3 h-2/3 bg-sand rounded-2xl -z-10" />
           <div className="absolute -top-6 -left-6 border-2 border-champagne/30 w-32 h-32 -z-10" />
@@ -922,13 +944,14 @@ const App = () => {
   const [selectedCourse, setSelectedCourse] = useState<CourseType | null>(null);
   const [studentModal, setStudentModal] = useState<StudentModalType>(null);
   const [selectedService, setSelectedService] = useState<string | null>(null);
+  const [isTourOpen, setIsTourOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-offwhite font-sans text-wood selection:bg-sage/20 selection:text-sage">
       <Navbar />
       <main>
         <Hero />
-        <About />
+        <About onPlayTour={() => setIsTourOpen(true)} />
         <Team />
         <Services onServiceClick={setSelectedService} />
         <Courses onCourseClick={setSelectedCourse} />
@@ -941,6 +964,34 @@ const App = () => {
       <Footer />
 
       {/* Modals */}
+      <AnimatePresence>
+        {isTourOpen && (
+          <div className="fixed inset-0 z-[200] flex items-center justify-center p-4">
+            <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" onClick={() => setIsTourOpen(false)} />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ duration: 0.25 }}
+              className="relative bg-black rounded-3xl overflow-hidden max-w-4xl w-full aspect-video shadow-2xl border border-white/10 z-10"
+            >
+              <button
+                onClick={() => setIsTourOpen(false)}
+                className="absolute top-5 right-5 w-10 h-10 bg-black/60 rounded-full flex items-center justify-center text-white hover:bg-black/90 transition-colors z-20"
+              >
+                <X size={20} />
+              </button>
+              <video
+                src="/videos/espaco-completo.mp4"
+                controls
+                autoPlay
+                className="w-full h-full object-contain"
+              />
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+
       <AnimatePresence>
         {selectedService && (
           <ServiceModal name={selectedService} onClose={() => setSelectedService(null)} />
