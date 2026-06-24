@@ -724,6 +724,7 @@ const Gallery = () => {
     { src: '/images/final-9.jpeg', label: 'Ambiente Acolhedor' },
     { src: '/images/final-10.jpeg', label: 'Cuidado e Bem-estar' },
     { src: '/images/final-11.jpeg', label: 'Experiência Única' },
+    { src: '/videos/espaco-3s.mp4', label: 'Vídeo do Espaço', isVideo: true },
   ];
 
   return (
@@ -736,7 +737,18 @@ const Gallery = () => {
         {images.map((img, i) => (
           <motion.div key={i} whileHover={{ scale: 1.02 }}
             className="break-inside-avoid overflow-hidden rounded-2xl shadow-lg bg-white mb-6">
-            <img src={img.src} className="w-full h-auto block" alt={img.label} />
+            {img.isVideo ? (
+              <video
+                src={img.src}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-auto block"
+              />
+            ) : (
+              <img src={img.src} className="w-full h-auto block" alt={img.label} />
+            )}
           </motion.div>
         ))}
       </div>
@@ -862,50 +874,29 @@ const Contact = () => (
 
 // ─── CTA Final ────────────────────────────────────────────────────────────────
 
-const CTAFinal = () => {
-  const ctaVideoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    if (ctaVideoRef.current) {
-      ctaVideoRef.current.playbackRate = 0.25; // 4x mais lento (câmera ultra lenta)
-    }
-  }, []);
-
-  return (
-    <section className="py-24 bg-wood text-white relative overflow-hidden">
-      <div className="absolute inset-0 z-0 opacity-30">
-        <video
-          ref={ctaVideoRef}
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-full h-full object-cover blur-[2px]"
-          poster="/images/capasitelira.jpeg"
-        >
-          <source src="/videos/espaco-3s.mp4" type="video/mp4" />
-          <img src="/images/capasitelira.jpeg" className="w-full h-full object-cover object-[center_35%]" alt="Fundo" />
-        </video>
+const CTAFinal = () => (
+  <section className="py-24 bg-wood text-white relative overflow-hidden">
+    <div className="absolute inset-0 z-0 opacity-20">
+      <img src="/images/capasitelira.jpeg" className="w-full h-full object-cover object-[center_35%]" alt="Fundo" />
+    </div>
+    <div className="container mx-auto px-6 relative z-10 text-center max-w-4xl">
+      <h2 className="text-4xl md:text-5xl font-serif mb-8 leading-tight">Permita-se viver uma experiência única de cuidado e transformação</h2>
+      <p className="text-sand/80 text-lg mb-12 font-light">
+        Agende seu atendimento ou descubra nossas formações profissionais e inicie uma nova jornada de desenvolvimento e bem-estar.
+      </p>
+      <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
+        <a href={`https://wa.me/${WA_NUMBER}`} target="_blank" rel="noopener noreferrer"
+          className="w-full sm:w-auto bg-champagne text-white px-10 py-5 rounded-full text-xs uppercase tracking-widest font-bold hover:scale-105 transition-transform shadow-xl">
+          Agendar pelo WhatsApp
+        </a>
+        <a href="#cursos"
+          className="w-full sm:w-auto bg-transparent border border-white text-white px-10 py-5 rounded-full text-xs uppercase tracking-widest font-bold hover:bg-white/10 transition-colors">
+          Conhecer os Cursos
+        </a>
       </div>
-      <div className="container mx-auto px-6 relative z-10 text-center max-w-4xl">
-        <h2 className="text-4xl md:text-5xl font-serif mb-8 leading-tight">Permita-se viver uma experiência única de cuidado e transformação</h2>
-        <p className="text-sand/80 text-lg mb-12 font-light">
-          Agende seu atendimento ou descubra nossas formações profissionais e inicie uma nova jornada de desenvolvimento e bem-estar.
-        </p>
-        <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
-          <a href={`https://wa.me/${WA_NUMBER}`} target="_blank" rel="noopener noreferrer"
-            className="w-full sm:w-auto bg-champagne text-white px-10 py-5 rounded-full text-xs uppercase tracking-widest font-bold hover:scale-105 transition-transform shadow-xl">
-            Agendar pelo WhatsApp
-          </a>
-          <a href="#cursos"
-            className="w-full sm:w-auto bg-transparent border border-white text-white px-10 py-5 rounded-full text-xs uppercase tracking-widest font-bold hover:bg-white/10 transition-colors">
-            Conhecer os Cursos
-          </a>
-        </div>
-      </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 // ─── Footer ───────────────────────────────────────────────────────────────────
 
