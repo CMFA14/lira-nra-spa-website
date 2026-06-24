@@ -328,32 +328,12 @@ const Navbar = () => {
 
 // ─── Hero ─────────────────────────────────────────────────────────────────────
 
-const Hero = () => {
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.playbackRate = 0.25; // 4x mais lento (câmera ultra lenta)
-    }
-  }, []);
-
-  return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden">
-      <div className="absolute inset-0 z-0">
-        <video
-          ref={videoRef}
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-full h-full object-cover brightness-[0.55] blur-[2px]"
-          poster="/images/capasitelira.jpeg"
-        >
-          <source src="/videos/espaco-3s.mp4" type="video/mp4" />
-          <img src="/images/capasitelira.jpeg" alt="Spa Lira Nora" className="w-full h-full object-cover object-[center_35%]" />
-        </video>
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50" />
-      </div>
+const Hero = () => (
+  <section className="relative h-screen flex items-center justify-center overflow-hidden">
+    <div className="absolute inset-0 z-0">
+      <img src="/images/capasitelira.jpeg" alt="Spa Lira Nora" className="w-full h-full object-cover object-[center_35%] brightness-[0.65]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50" />
+    </div>
     <div className="container mx-auto px-6 relative z-10 text-center">
       <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }}>
         <h1 className="text-4xl md:text-7xl font-serif text-white mb-6 leading-tight">
@@ -377,8 +357,7 @@ const Hero = () => {
       <div className="w-[1px] h-20 bg-gradient-to-b from-white to-transparent" />
     </div>
   </section>
-  );
-};
+);
 
 // ─── About ────────────────────────────────────────────────────────────────────
 
@@ -883,29 +862,50 @@ const Contact = () => (
 
 // ─── CTA Final ────────────────────────────────────────────────────────────────
 
-const CTAFinal = () => (
-  <section className="py-24 bg-wood text-white relative overflow-hidden">
-    <div className="absolute inset-0 z-0 opacity-20">
-      <img src="/images/capasitelira.jpeg" className="w-full h-full object-cover object-[center_35%]" alt="Fundo" />
-    </div>
-    <div className="container mx-auto px-6 relative z-10 text-center max-w-4xl">
-      <h2 className="text-4xl md:text-5xl font-serif mb-8 leading-tight">Permita-se viver uma experiência única de cuidado e transformação</h2>
-      <p className="text-sand/80 text-lg mb-12 font-light">
-        Agende seu atendimento ou descubra nossas formações profissionais e inicie uma nova jornada de desenvolvimento e bem-estar.
-      </p>
-      <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
-        <a href={`https://wa.me/${WA_NUMBER}`} target="_blank" rel="noopener noreferrer"
-          className="w-full sm:w-auto bg-champagne text-white px-10 py-5 rounded-full text-xs uppercase tracking-widest font-bold hover:scale-105 transition-transform shadow-xl">
-          Agendar pelo WhatsApp
-        </a>
-        <a href="#cursos"
-          className="w-full sm:w-auto bg-transparent border border-white text-white px-10 py-5 rounded-full text-xs uppercase tracking-widest font-bold hover:bg-white/10 transition-colors">
-          Conhecer os Cursos
-        </a>
+const CTAFinal = () => {
+  const ctaVideoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (ctaVideoRef.current) {
+      ctaVideoRef.current.playbackRate = 0.25; // 4x mais lento (câmera ultra lenta)
+    }
+  }, []);
+
+  return (
+    <section className="py-24 bg-wood text-white relative overflow-hidden">
+      <div className="absolute inset-0 z-0 opacity-30">
+        <video
+          ref={ctaVideoRef}
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover blur-[2px]"
+          poster="/images/capasitelira.jpeg"
+        >
+          <source src="/videos/espaco-3s.mp4" type="video/mp4" />
+          <img src="/images/capasitelira.jpeg" className="w-full h-full object-cover object-[center_35%]" alt="Fundo" />
+        </video>
       </div>
-    </div>
-  </section>
-);
+      <div className="container mx-auto px-6 relative z-10 text-center max-w-4xl">
+        <h2 className="text-4xl md:text-5xl font-serif mb-8 leading-tight">Permita-se viver uma experiência única de cuidado e transformação</h2>
+        <p className="text-sand/80 text-lg mb-12 font-light">
+          Agende seu atendimento ou descubra nossas formações profissionais e inicie uma nova jornada de desenvolvimento e bem-estar.
+        </p>
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
+          <a href={`https://wa.me/${WA_NUMBER}`} target="_blank" rel="noopener noreferrer"
+            className="w-full sm:w-auto bg-champagne text-white px-10 py-5 rounded-full text-xs uppercase tracking-widest font-bold hover:scale-105 transition-transform shadow-xl">
+            Agendar pelo WhatsApp
+          </a>
+          <a href="#cursos"
+            className="w-full sm:w-auto bg-transparent border border-white text-white px-10 py-5 rounded-full text-xs uppercase tracking-widest font-bold hover:bg-white/10 transition-colors">
+            Conhecer os Cursos
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+};
 
 // ─── Footer ───────────────────────────────────────────────────────────────────
 
