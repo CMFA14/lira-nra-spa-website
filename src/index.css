@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+@theme {
+  --color-sage: #7C8A6D;
+  --color-sand: #E9DFD1;
+  --color-offwhite: #F8F6F2;
+  --color-champagne: #C8A76B;
+  --color-wood: #8C6849;
+
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Montserrat", sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply antialiased text-wood bg-offwhite font-sans;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
