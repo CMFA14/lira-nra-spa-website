@@ -996,6 +996,7 @@ const App = () => {
                 src="/videos/espaco-completo.mp4"
                 controls
                 autoPlay
+                muted
                 className="w-full h-full object-contain"
               />
             </motion.div>
