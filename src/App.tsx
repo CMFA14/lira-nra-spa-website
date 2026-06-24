@@ -84,7 +84,7 @@ const CourseModal = ({ course, onClose }: { course: CourseType; onClose: () => v
           </div>
           <div className="bg-white p-4 rounded-2xl text-center border border-sand">
             <p className="text-xs uppercase tracking-widest text-sage mb-1">Certificado</p>
-            <p className="font-bold text-wood text-sm">Nacional</p>
+            <p className="font-bold text-wood text-sm">{course.certification}</p>
           </div>
         </div>
 
@@ -586,43 +586,43 @@ const allCourses: CourseType[] = [
     title: 'Curso de Massagem Profissional',
     items: ['Massagem Relaxante', 'Massagem Terapêutica', 'Massagem com Pedras Quentes', 'Bambuterapia', 'Spa dos Pés'],
     description: 'Aprenda técnicas voltadas para relaxamento, bem-estar e atendimento profissional. O curso abrange massagens relaxantes, terapêuticas e técnicas avançadas com elementos naturais.',
-    duration: '40 horas', certification: 'Nacional',
+    duration: '40 horas', certification: 'Nacional e Internacional',
   },
   {
     title: 'Curso de Drenagem Linfática',
     items: ['Sistema Linfático', 'Técnicas Manuais de Drenagem', 'Indicações e Contraindicações', 'Atendimento Prático'],
     description: 'Domine a drenagem linfática manual aprendendo anatomia do sistema linfático, técnicas certificadas e atendimento clínico real.',
-    duration: '24 horas', certification: 'Nacional',
+    duration: '24 horas', certification: 'Nacional e Internacional',
   },
   {
     title: 'Curso de Pós-operatório',
     items: ['Drenagem Pós-operatória', 'Manejo de Edemas', 'Protocolos de Recuperação', 'Atendimento Especializado'],
     description: 'Especialize-se em recuperação pós-cirúrgica com protocolos seguros, técnicas de manejo de edemas e atendimento humanizado.',
-    duration: '20 horas', certification: 'Nacional',
+    duration: '20 horas', certification: 'Nacional e Internacional',
   },
   {
     title: 'Curso de Estética Corporal',
     items: ['Massagem Modeladora', 'Protocolos de Emagrecimento', 'Protocolos para Celulite', 'Protocolos para Flacidez'],
     description: 'Formação completa para tratamentos corporais estéticos, com técnicas e equipamentos utilizados no mercado.',
-    duration: '32 horas', certification: 'Nacional',
+    duration: '32 horas', certification: 'Nacional e Internacional',
   },
   {
     title: 'Curso de Estética Facial',
     items: ['Limpeza de Pele', 'Peeling de Diamante', 'Hidratação Facial', 'Revitalização Facial', 'Rejuvenescimento Facial'],
     description: 'Aprenda protocolos completos de estética facial, do básico ao rejuvenescimento com técnicas modernas e seguras.',
-    duration: '36 horas', certification: 'Nacional',
+    duration: '36 horas', certification: 'Nacional e Internacional',
   },
   {
     title: 'Curso de Reiki',
     items: ['Fundamentos do Reiki', 'Aplicação Energética', 'Estudo dos Chakras', 'Harmonização Energética'],
     description: 'Conheça a arte milenar do Reiki, aprenda canalizção de energia, equilíbrio dos chakras e práticas de harmonização.',
-    duration: '16 horas', certification: 'Nacional',
+    duration: '16 horas', certification: 'Nacional e Internacional',
   },
   {
     title: 'Curso de Auriculoterapia',
     items: ['Fundamentos da Técnica', 'Mapeamento Auricular', 'Protocolos de Atendimento', 'Aplicação Prática'],
     description: 'Aprenda auriculoterapia do zero com mapeamento completo da orelha, protocolos clínicos e prática supervisionada.',
-    duration: '20 horas', certification: 'Nacional',
+    duration: '20 horas', certification: 'Nacional e Internacional',
   },
 ];
 
@@ -636,7 +636,7 @@ const Courses = ({ onCourseClick }: { onCourseClick: (course: CourseType) => voi
             Aprenda com quem vive a prática todos os dias. Nossas formações são completas para quem deseja iniciar ou aperfeiçoar seus conhecimentos.
           </p>
           <ul className="space-y-4 mb-10">
-            {['Suporte Vitalício', 'Material Didático Premium', 'Certificado Nacional'].map((item) => (
+            {['On-line', 'Nacional e Internacional', 'Material Vitalício'].map((item) => (
               <li key={item} className="flex items-center space-x-3 text-sage">
                 <Check size={18} /><span className="text-sm font-medium">{item}</span>
               </li>
