@@ -284,7 +284,7 @@ const Navbar = () => {
       <div className="container mx-auto px-6 flex justify-between items-center">
         <div className="flex items-center gap-2">
           <span className={`text-2xl font-serif font-bold tracking-tighter ${scrolled ? 'text-sage' : 'text-white'}`}>Lira Nõra</span>
-          <span className={`text-[10px] uppercase tracking-[0.2em] font-sans ${scrolled ? 'text-wood' : 'text-sand'}`}>Spa & Escola</span>
+          <span className={`text-[10px] uppercase tracking-[0.2em] font-sans ${scrolled ? 'text-wood' : 'text-sand'}`}>Spa, Estética & Escola</span>
         </div>
 
         <div className="hidden lg:flex items-center space-x-8">
@@ -942,7 +942,7 @@ const Footer = () => (
         </div>
       </div>
       <div className="border-t border-sand pt-8 flex flex-col md:flex-row justify-between items-center text-[10px] uppercase tracking-widest text-wood/50">
-        <p>© 2024 Lira Nõra Spa & Escola. Todos os direitos reservados.</p>
+        <p>© 2024 Lira Nõra Spa, Estética & Escola. Todos os direitos reservados.</p>
         <p className="mt-4 md:mt-0">Desenvolvido com sofisticação</p>
       </div>
     </div>
