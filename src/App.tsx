@@ -634,7 +634,7 @@ const Courses = ({ onCourseClick }: { onCourseClick: (course: CourseType) => voi
               </li>
             ))}
           </ul>
-          <img src="/images/holistic-training.jpg" className="rounded-2xl shadow-lg w-full aspect-square object-cover" alt="Treinamento" />
+          <img src="/images/escola-formacao.jpeg" className="rounded-2xl shadow-lg w-full aspect-square object-cover" alt="Treinamento" />
         </div>
       </div>
 
