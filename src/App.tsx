@@ -475,7 +475,7 @@ const Team = () => (
                   <img
                     src={member.image}
                     alt={member.name}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover object-top"
                   />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center bg-gradient-to-b from-sand/40 to-sage/10">
@@ -719,11 +719,11 @@ const Gallery = () => {
         <h2 className="text-4xl font-serif text-wood mb-2">Nosso Espaço</h2>
         <p className="text-wood/60 font-light">Um ambiente criado para acolher e transformar</p>
       </div>
-      <div className="container mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <div className="container mx-auto px-6 columns-1 sm:columns-2 md:columns-3 gap-6 [column-fill:_balance]">
         {images.map((img, i) => (
           <motion.div key={i} whileHover={{ scale: 1.02 }}
-            className="overflow-hidden rounded-2xl shadow-lg min-h-[260px] aspect-[4/3]">
-            <img src={img.src} className="w-full h-full object-cover" alt={img.label} />
+            className="break-inside-avoid overflow-hidden rounded-2xl shadow-lg bg-white mb-6">
+            <img src={img.src} className="w-full h-auto block" alt={img.label} />
           </motion.div>
         ))}
       </div>
