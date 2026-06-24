@@ -702,10 +702,6 @@ const StudentArea = ({ onAccess }: { onAccess: (type: StudentModalType) => void 
 
 const Gallery = () => {
   const images = [
-    { src: '/images/espaco.jpeg', label: 'Nosso Espaço' },
-    { src: '/images/espaco-1.jpeg', label: 'Ambiente Acolhedor' },
-    { src: '/images/espaco-2.jpeg', label: 'Sala de Atendimento' },
-    { src: '/images/espaco-4.jpeg', label: 'Detalhes' },
     { src: '/images/final-1.jpeg', label: 'Sala de Massagem' },
     { src: '/images/final-2.jpeg', label: 'Ambiente Relaxante' },
     { src: '/images/final-3.jpeg', label: 'Área de Estética' },
