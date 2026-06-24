@@ -707,6 +707,11 @@ const Gallery = () => {
     { src: '/images/final-3.jpeg', label: 'Área de Estética' },
     { src: '/images/final-4.jpeg', label: 'Recepção' },
     { src: '/images/final-5.jpeg', label: 'Espaço Lira Nõra' },
+    { src: '/images/final-7.jpeg', label: 'Detalhes do Spa' },
+    { src: '/images/final-8.jpeg', label: 'Sala de Atendimento' },
+    { src: '/images/final-9.jpeg', label: 'Ambiente Acolhedor' },
+    { src: '/images/final-10.jpeg', label: 'Cuidado e Bem-estar' },
+    { src: '/images/final-11.jpeg', label: 'Experiência Única' },
   ];
 
   return (
