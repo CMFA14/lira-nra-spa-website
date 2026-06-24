@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
@@ -328,22 +328,32 @@ const Navbar = () => {
 
 // ─── Hero ─────────────────────────────────────────────────────────────────────
 
-const Hero = () => (
-  <section className="relative h-screen flex items-center justify-center overflow-hidden">
-    <div className="absolute inset-0 z-0">
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="w-full h-full object-cover brightness-[0.55]"
-        poster="/images/capasitelira.jpeg"
-      >
-        <source src="/videos/espaco-3s.mp4" type="video/mp4" />
-        <img src="/images/capasitelira.jpeg" alt="Spa Lira Nora" className="w-full h-full object-cover object-[center_35%]" />
-      </video>
-      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50" />
-    </div>
+const Hero = () => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.playbackRate = 0.25; // 4x mais lento (câmera ultra lenta)
+    }
+  }, []);
+
+  return (
+    <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      <div className="absolute inset-0 z-0">
+        <video
+          ref={videoRef}
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover brightness-[0.55] blur-[2px]"
+          poster="/images/capasitelira.jpeg"
+        >
+          <source src="/videos/espaco-3s.mp4" type="video/mp4" />
+          <img src="/images/capasitelira.jpeg" alt="Spa Lira Nora" className="w-full h-full object-cover object-[center_35%]" />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50" />
+      </div>
     <div className="container mx-auto px-6 relative z-10 text-center">
       <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }}>
         <h1 className="text-4xl md:text-7xl font-serif text-white mb-6 leading-tight">
@@ -367,7 +377,8 @@ const Hero = () => (
       <div className="w-[1px] h-20 bg-gradient-to-b from-white to-transparent" />
     </div>
   </section>
-);
+  );
+};
 
 // ─── About ────────────────────────────────────────────────────────────────────
 
