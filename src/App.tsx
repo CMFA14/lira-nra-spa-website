@@ -331,7 +331,7 @@ const Navbar = () => {
 const Hero = () => (
   <section className="relative h-screen flex items-center justify-center overflow-hidden">
     <div className="absolute inset-0 z-0">
-      <img src="/images/capasitelira.jpeg" alt="Spa Lira Nora" className="w-full h-full object-cover brightness-[0.65]" />
+      <img src="/images/capasitelira.jpeg" alt="Spa Lira Nora" className="w-full h-full object-cover object-[center_35%] brightness-[0.65]" />
       <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50" />
     </div>
     <div className="container mx-auto px-6 relative z-10 text-center">
@@ -706,7 +706,11 @@ const Gallery = () => {
     { src: '/images/espaco-1.jpeg', label: 'Ambiente Acolhedor' },
     { src: '/images/espaco-2.jpeg', label: 'Sala de Atendimento' },
     { src: '/images/espaco-4.jpeg', label: 'Detalhes' },
-    { src: '/images/espaco-6.jpeg', label: 'Área de Relaxamento' },
+    { src: '/images/final-1.jpeg', label: 'Sala de Massagem' },
+    { src: '/images/final-2.jpeg', label: 'Ambiente Relaxante' },
+    { src: '/images/final-3.jpeg', label: 'Área de Estética' },
+    { src: '/images/final-4.jpeg', label: 'Recepção' },
+    { src: '/images/final-5.jpeg', label: 'Espaço Lira Nõra' },
   ];
 
   return (
@@ -715,10 +719,10 @@ const Gallery = () => {
         <h2 className="text-4xl font-serif text-wood mb-2">Nosso Espaço</h2>
         <p className="text-wood/60 font-light">Um ambiente criado para acolher e transformar</p>
       </div>
-      <div className="container mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+      <div className="container mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {images.map((img, i) => (
           <motion.div key={i} whileHover={{ scale: 1.02 }}
-            className={`overflow-hidden rounded-xl shadow-lg ${i === 0 ? 'md:col-span-2 md:row-span-2 min-h-[350px] md:min-h-[580px]' : 'min-h-[280px]'}`}>
+            className="overflow-hidden rounded-2xl shadow-lg min-h-[260px] aspect-[4/3]">
             <img src={img.src} className="w-full h-full object-cover" alt={img.label} />
           </motion.div>
         ))}
@@ -848,7 +852,7 @@ const Contact = () => (
 const CTAFinal = () => (
   <section className="py-24 bg-wood text-white relative overflow-hidden">
     <div className="absolute inset-0 z-0 opacity-20">
-      <img src="/images/capasitelira.jpeg" className="w-full h-full object-cover" alt="Fundo" />
+      <img src="/images/capasitelira.jpeg" className="w-full h-full object-cover object-[center_35%]" alt="Fundo" />
     </div>
     <div className="container mx-auto px-6 relative z-10 text-center max-w-4xl">
       <h2 className="text-4xl md:text-5xl font-serif mb-8 leading-tight">Permita-se viver uma experiência única de cuidado e transformação</h2>
